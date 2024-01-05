@@ -22,7 +22,7 @@ function getLength() {
   alert(`nombre: ${globalPokemon[0].name} url: ${globalPokemon[0].url}`);
 
   let a = globalPokemon.filter((pokemon) => {
-    return pokemon.name == "ivysaur";
+    return pokemon.name == "picachu";
   });
 
   alert(`nombre: ${a[0].name} url: ${a[0].url}`);
