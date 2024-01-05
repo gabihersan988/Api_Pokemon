@@ -1,12 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <button onclick="getLength()">Click</button>
-    <script src="main.js"></script>
-  </body>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Página</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>BUSCADOR POKEMON</h1>
+        </header>
+        <section>
+            <h2>Sección 1</h2>
+            <form id="busquedaForm">
+                <label for="buscarInput">Buscar:</label>
+                <input type="text" id="buscarInput" name="buscarInput">
+                <input type="image" id="buscarButton" src="ruta_de_tu_imagen.jpg" alt="Buscar" onclick="getLength()">
+            </form>
+        </section>
+        <section id="resultadosSection">
+            <h2>Resultados</h2>
+        </section>
+        <footer>
+            <p>Pie de página</p>
+        </footer>
+    </div>
+    <script src="main.js">
+    </script>
+</body>
 </html>

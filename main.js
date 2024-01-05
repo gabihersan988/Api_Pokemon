@@ -1,6 +1,6 @@
 let globalPokemon = null;
 function findPokemonByName() {
-  const pokemonName = prompt("Dime un pokemon");
+  const pokemonName = document.getElementById("buscarInput");
 
   const pokemons = fetch(
     `https://pokeapi.co/api/v2/pokemon/?limit=1126${pokemonName}`
@@ -17,12 +17,12 @@ function findPokemonByName() {
 }
 findPokemonByName();
 //console.log(`lenght: ${pokemon.results.length}`);
-
+const nombrePokemon = document.getElementById("buscarInput");
 function getLength() {
   alert(`nombre: ${globalPokemon[0].name} url: ${globalPokemon[0].url}`);
 
   let a = globalPokemon.filter((pokemon) => {
-    return pokemon.name == "ivysaur";
+    return pokemon.name == nombrePokemon;
   });
 
   alert(`nombre: ${a[0].name} url: ${a[0].url}`);
