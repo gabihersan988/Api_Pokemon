@@ -2,8 +2,13 @@ let globalPokemon = null;
 function findPokemonByName() {
   const pokemonName = prompt("Dime un pokemon");
 
+  //https://pokeapi.co/  -> documentación de la API
+  
+  /* Cambios en la url del fetch: colocar el nombre del pokemon en el lugar de la url que se indica en la documentación
+  https://pokeapi.co/api/v2/pokemon/?limit=1126pikachu  => https://pokeapi.co/api/v2/pokemon/pikachu?limit=1126
+  */
   const pokemons = fetch(
-    `https://pokeapi.co/api/v2/pokemon/?limit=1126${pokemonName}`
+    `https://pokeapi.co/api/v2/pokemon/${pokemonName}?limit=1126`
   )
     .then((resp) => resp.json())
     .then((pokemon) => {
