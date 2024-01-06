@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(218, 164, 189);
+}
+
+.cabecera {
+    display: inline-block;
+    align-content: center;
+}
+
+.imagen-pokedex {
+    display: inline-block;
+    animation: movimiento 1s infinite;
+}
+
+@keyframes movimiento {
+    0% {
+        transform: rotate(0deg);
+    }
+    20% {
+        transform: rotate(-10deg);
+    }
+    40% {
+        transform: rotate(30deg);
+    }
+    60% {
+        transform: rotate(-10deg);
+    }
+    80% {
+        transform: rotate(30deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
