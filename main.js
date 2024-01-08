@@ -27,3 +27,32 @@ function cleanResultsSection() {
   document.getElementById('resultadosSection').hidden = true;
   document.getElementById('resultadosSection').removeAttribute('class');
 }
+//Pintar información do Pokemon
+function printPokemonInformation(pokemonInformation) {
+  //Eliminar hidden ao amosar os resultados
+  document.getElementById('resultadosSection').removeAttribute('hidden');
+  //Pintar imaxe
+  document.getElementById('frontImage').setAttribute('src', pokemonInformation.sprites.front_default);
+  document.getElementById('backImage').setAttribute('src', pokemonInformation.sprites.back_default);
+  //Pintar nome do Pokemon
+  //const nombre = pokemonInformation.name.charAt(0).toUpperCase() + pokemonInformation.name.slice(1);
+  const nombre = capitalizeFirstLetter(pokemonInformation.name)
+  document.getElementById('tituloResultados').innerText = nombre;
+
+  //Pintar a lista de características de Pokemon
+  const ulResults = document.getElementById('listaResultados');
+
+  addLiElement(ulResults, 'Nombre: ' + nombre);
+  addLiElement(ulResults, 'Altura: ' + pokemonInformation.height);
+
+  addLiElement(ulResults, 'Tipos: '+ pokemonInformation.types.map(type => capitalizeFirstLetter(type.type.name)).join(', '));
+
+  document.getElementById('resultadosSection').classList.add(pokemonInformation.types[0].type.name)
+
+  //TODO
+  console.log('Peso: ' + pokemonInformation.weight)
+  console.log('Puntos de vida: ' + pokemonInformation.stats[0].base_stat)
+  console.log('Ataque: ' + pokemonInformation.stats[1].base_stat)
+  console.log('Defensa: ' + pokemonInformation.stats[2].base_stat)
+  console.log('Velocidad: ' + pokemonInformation.stats[5].base_stat)
+}
