@@ -1,3 +1,8 @@
+//https://pokeapi.co/  -> documentación de la API
+
+//https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/submit_event#examples
+document.getElementById('searchForm').addEventListener('submit', findPokemonByName);
+
 function findPokemonByName(event) {
   event.preventDefault(); 
   const inputValue = document.getElementById('buscarInput').value.toLowerCase();
