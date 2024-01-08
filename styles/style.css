@@ -74,7 +74,7 @@
     cursor: pointer;
   }
   
-  /** Cartas Pokemon/
+  /** Cartas Pokemon*/
   
   #resultadosSection {
     /background: var(--color-electric); /
@@ -86,7 +86,7 @@
     font-family: 'Arial', sans-serif; 
   }
   
-  / Background color #resultadosSection by type /
+  Background color #resultadosSection by type /
   /TODO/
   
   .bug {
