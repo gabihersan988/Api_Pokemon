@@ -56,3 +56,16 @@ function printPokemonInformation(pokemonInformation) {
   console.log('Defensa: ' + pokemonInformation.stats[2].base_stat)
   console.log('Velocidad: ' + pokemonInformation.stats[5].base_stat)
 }
+
+// Función para engadir elementos li a unha ul co texto recibido (Lista de características de Pokemon)
+function addLiElement(ulElement, text) {
+  let liElement = document.createElement('li');
+  liElement.innerText = text;
+  ulElement.append(liElement);
+}
+
+// Función poñer primeira letra en maiúsculas
+function capitalizeFirstLetter(name) {
+  let nameWithCapitalLetter = name.charAt(0).toUpperCase() + name.slice(1);
+  return nameWithCapitalLetter;
+}
