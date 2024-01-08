@@ -17,3 +17,13 @@ function findPokemonByName(event) {
     document.getElementById('notFound').innerText = '¿Qué? ¡Ese Pokémon no existe!'
     });
 }
+
+function cleanResultsSection() {
+  document.getElementById('notFound').innerText = '';
+  document.getElementById('frontImage').removeAttribute('src');
+  document.getElementById('backImage').removeAttribute('src');
+  document.getElementById('tituloResultados').innerText = '';
+  document.getElementById('listaResultados').innerHTML = '';
+  document.getElementById('resultadosSection').hidden = true;
+  document.getElementById('resultadosSection').removeAttribute('class');
+}
