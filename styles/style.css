@@ -1,25 +1,25 @@
 :root {
-    --color-bug: #91C12F;
-    --color-grass: #63BC5A;
-    --color-fairy: #EC8FE6;
-    --color-normal: #919AA2;
-    --color-dragon: #0B6DC3;
-    --color-psychic: #FA7179;
-    --color-ghost: #5269AD;
-    --color-ground:#D97845;
-    --color-steel: #5A8EA2;
-    --color-fire: #FF9D55;
-    --color-flying: #89AAE3;
-    --color-ice: #73CEC0;
-    --color-electric: #F4D23C;
-    --color-rock: #C5B78C;
-    --color-dark: #5A5465;
-    --color-water: #5090D6;
-    --color-fighting :#CE416B;
-    --color-poison: #B567CE;
-  
-  }
-  
+  --color-bug: #91C12F;
+  --color-grass: #63BC5A;
+  --color-fairy: #EC8FE6;
+  --color-normal: #919AA2;
+  --color-dragon: #0B6DC3;
+  --color-psychic: #FA7179;
+  --color-ghost: #5269AD;
+  --color-ground:#D97845;
+  --color-steel: #5A8EA2;
+  --color-fire: #FF9D55;
+  --color-flying: #89AAE3;
+  --color-ice: #73CEC0;
+  --color-electric: #F4D23C;
+  --color-rock: #C5B78C;
+  --color-dark: #5A5465;
+  --color-water: #5090D6;
+  --color-fighting :#CE416B;
+  --color-poison: #B567CE;
+
+}
+
   body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -29,9 +29,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+
   }
-  
+
   header {
     margin-top: 0;
     background-color: #333;
@@ -40,28 +40,28 @@
     padding: 1rem;
     width: 100%;
   }
-  
+
   .container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
-  
+
   section {
     margin: 20px;
   }
-  
+
   form {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  
+
   label {
     margin-bottom: 10px;
   }
-  
+
   #buscarInput {
     width: 200px;
     padding: 5px;
@@ -73,20 +73,21 @@
     border: none;
     cursor: pointer;
   }
-  
+
   /** Cartas Pokemon*/
-  
+
   #resultadosSection {
-    /background: var(--color-electric); /
-    border-radius: 10px; 
-    box-shadow: 0px 0px 10px #888888; 
-    padding: 1rem; 
-    max-width: 18rem; 
-    margin: auto; 
-    font-family: 'Arial', sans-serif; 
+    /*background: var(--color-electric);*/
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #888888;
+    padding: 1rem;
+    max-width: 25rem;
+    margin: auto;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
   }
   
-  Background color #resultadosSection by type /
+  /*Background color #resultadosSection by type */
   /TODO/
   
   .bug {
