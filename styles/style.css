@@ -186,12 +186,12 @@
     color: #ffffff; 
     background: #000000; 
     border-radius: 5px; 
-    padding: 5px; /
+    padding: 5px; 
 }
 
 #listaResultados {
-  column-count: 2; / Divide en dos columnas /
-  column-gap: 20px; / Espacio entre columnas /
+  column-count: 2; 
+  column-gap: 20px; 
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -202,8 +202,9 @@
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 5px;
-  break-inside: avoid; / Evita que un elemento se divida en dos columnas */
+  break-inside: avoid; 
 }
+
 #listaResultados li:last-child {
     margin-bottom: 0; 
 }
