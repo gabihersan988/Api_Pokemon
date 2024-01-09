@@ -29,8 +29,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
   }
+
 
   header {
     margin-top: 0;
@@ -182,6 +182,7 @@
 }
 
 #resultadosSection h2 {
+
     text-align: center; 
     color: #ffffff; 
     background: #000000; 
