@@ -11,13 +11,19 @@
     <header id="cabecera">
         <img src="assets/img/pokeapp.png">
     </header>
-        <section>
-            <h2>Busca tu Pokemon</h2>
-                <form id="searchForm">
-                  <input type="text" id="buscarInput" placeholder="Escribe el nombre de tu Pokemon">
-                  <button type="submit">Buscar</button>
-                </form>
-        </section>
+    <main>
+        <section id="BuscaTuPokemon">
+            <h2 class="tituloBuscador">¡Hazte con todos!</h2>
+            <form id="searchForm">
+                <input
+                    type="text"
+                    id="buscarInput"
+                    placeholder="Busca tu Pokémon"
+                />
+            </form>
+        <section class="listaInicioSection">
+            <ul id="listaInicio"></ul>
+        </section>     
         <section id="resultadosSection" hidden>
           <div class="imagesContainer">
             <img id="frontImage" alt="Pokemon front image">
@@ -35,7 +41,7 @@
                 <!--<img id="frontImage2" alt="">-->
             </div>
         </section>
-
+    </main>
         <footer>
             <p>Pie de página</p>
         </footer>
