@@ -3,6 +3,8 @@ let name;
 let imgId;
 let pokemonArray = [];
 let inputValue;
+let pokemonGlobalList;
+
 document
   .getElementById("searchForm")
   .addEventListener("submit", findPokemonByName);
@@ -12,7 +14,18 @@ function findPokemonByName(event) {
   inputValue = document.getElementById("buscarInput").value.toLowerCase();
   const apiURL = "https://pokeapi.co/api/v2/pokemon/" + inputValue;
 
-  fetch(apiURL)
+  fetchPokemonByName(apiURL)
+}
+
+function findPokemonByNameOnClick(event, pokemonName) {
+  event.preventDefault();
+  const apiURL = "https://pokeapi.co/api/v2/pokemon/" + pokemonName;
+
+  fetchPokemonByName(apiURL)
+}
+
+function fetchPokemonByName(apiUrl) {
+  fetch(apiUrl)
     .then((response) => {
       return response.json();
     })
@@ -28,6 +41,7 @@ function findPokemonByName(event) {
         "¿Qué? ¡Ese Pokémon no existe!";
     });
 }
+
 function cleanResultsSection() {
   document.getElementById("notFound").innerText = "";
   document.getElementById("frontImage").removeAttribute("src");
