@@ -14,14 +14,14 @@ function findPokemonByName(event) {
   inputValue = document.getElementById("buscarInput").value.toLowerCase();
   const apiURL = "https://pokeapi.co/api/v2/pokemon/" + inputValue;
 
-  fetchPokemonByName(apiURL);
+  fetchPokemonByName(apiURL)
 }
 
 function findPokemonByNameOnClick(event, pokemonName) {
   event.preventDefault();
   const apiURL = "https://pokeapi.co/api/v2/pokemon/" + pokemonName;
 
-  fetchPokemonByName(apiURL);
+  fetchPokemonByName(apiURL)
 }
 
 function fetchPokemonByName(apiUrl) {
@@ -56,15 +56,11 @@ function cleanResultsSection() {
 
 function printPokemonInformation(pokemonInformation) {
   document.getElementById("resultadosSection").removeAttribute("hidden");
-  document
-    .getElementById("frontImage")
-    .setAttribute("src", pokemonInformation.sprites.front_default);
-  document
-    .getElementById("backImage")
-    .setAttribute("src", pokemonInformation.sprites.back_default);
+  document.getElementById("frontImage").setAttribute("src", pokemonInformation.sprites.front_default);
+  document.getElementById("backImage").setAttribute("src", pokemonInformation.sprites.back_default);
   document.getElementById("frontImage").setAttribute("alt", "");
   document.getElementById("backImage").setAttribute("alt", "");
-
+ 
   const nombre = capitalizeFirstLetter(pokemonInformation.name);
   document.getElementById("tituloResultados").innerText = nombre;
 
@@ -72,27 +68,13 @@ function printPokemonInformation(pokemonInformation) {
 
   addLiElement(ulResults, "Nombre: " + nombre);
   addLiElement(ulResults, "Altura: " + pokemonInformation.height * 10 + " cm");
-  addLiElement(
-    ulResults,
-    "Tipos: " +
-      pokemonInformation.types
-        .map((type) => capitalizeFirstLetter(type.type.name))
-        .join(", ")
-  );
+  addLiElement(ulResults,"Tipos: " + pokemonInformation.types.map((type) => capitalizeFirstLetter(type.type.name)).join(", "));
   addLiElement(ulResults, "Peso: " + pokemonInformation.weight / 10 + " Kg");
-  addLiElement(
-    ulResults,
-    "Puntos de vida: " + pokemonInformation.stats[0].base_stat
-  );
+  addLiElement(ulResults,"Puntos de vida: " + pokemonInformation.stats[0].base_stat);
   addLiElement(ulResults, "Ataque: " + pokemonInformation.stats[1].base_stat);
   addLiElement(ulResults, "Defensa: " + pokemonInformation.stats[2].base_stat);
-  addLiElement(
-    ulResults,
-    "Velocidad: " + pokemonInformation.stats[5].base_stat
-  );
-  document
-    .getElementById("resultadosSection")
-    .classList.add(pokemonInformation.types[0].type.name);
+  addLiElement(ulResults,"Velocidad: " + pokemonInformation.stats[5].base_stat);
+  document.getElementById("resultadosSection").classList.add(pokemonInformation.types[0].type.name);
 }
 
 // Función para añadir elementos li a una ul con el texto recibido (Lista de características de Pokemon)
@@ -107,6 +89,7 @@ function capitalizeFirstLetter(name) {
   let nameWithCapitalLetter = name.charAt(0).toUpperCase() + name.slice(1);
   return nameWithCapitalLetter;
 }
+
 // Capturar Pokémon
 const capturaPokemon = document.querySelector(".capture");
 capturaPokemon.addEventListener("click", capturaEstePokemon);
@@ -122,33 +105,22 @@ function capturaEstePokemon() {
     } else {
       pokemonArray.push(imgId);
       console.log(pokemonArray);
-      document.getElementById("voidP").setAttribute("hidden", "true");
+      document.getElementById("voidP").setAttribute("hidden", "true")
       document.getElementById(imgId).setAttribute("class", "currentPokemon");
-      document
-        .getElementById(imgId)
-        .setAttribute("src", currentPokemonInformation.sprites.front_default);
-      document
-        .getElementById(imgId)
-        .setAttribute("alt", currentPokemonInformation.name);
-
-      document
-        .querySelector("#" + imgId + ".currentPokemon")
-        .addEventListener("click", (event) => {
-          imageCall(event);
-        });
+      document.getElementById(imgId).setAttribute("src", currentPokemonInformation.sprites.front_default);
+      document.getElementById(imgId).setAttribute("alt", currentPokemonInformation.name);
+      
+      document.querySelector("#"+imgId+".currentPokemon").addEventListener("click", (event) => {
+        imageCall(event)
+      })
       let pokemonCaptured = {
-        name: currentPokemonInformation.name,
-        img: currentPokemonInformation.sprites.front_default,
-      };
-      let pokemonCapturedList = localStorage.getItem("pokemonCapturedList");
-      pokemonCapturedList = pokemonCapturedList
-        ? JSON.parse(pokemonCapturedList)
-        : [];
-      pokemonCapturedList.push(pokemonCaptured);
-      localStorage.setItem(
-        "pokemonCapturedList",
-        JSON.stringify(pokemonCapturedList)
-      );
+        "name": currentPokemonInformation.name,
+        "img": currentPokemonInformation.sprites.front_default
+      }
+      let pokemonCapturedList = localStorage.getItem("pokemonCapturedList")
+      pokemonCapturedList = pokemonCapturedList ? JSON.parse(pokemonCapturedList) : [];
+      pokemonCapturedList.push(pokemonCaptured)
+      localStorage.setItem("pokemonCapturedList", JSON.stringify(pokemonCapturedList));
 
       return pokeButton();
     }
@@ -202,10 +174,9 @@ function pokeButton() {
     console.log("findPokemonByName:" + findPokemonByName);
   }
 }
-
 // Llamar a la función que muestre Pokémons al cargar la página
 
-window.addEventListener("load", getAllPokemon);
+window.addEventListener('load', getAllPokemon);
 
 function getAllPokemon() {
   const apiURL = "https://pokeapi.co/api/v2/pokemon?limit=10000";
@@ -224,12 +195,12 @@ function getAllPokemon() {
 }
 
 function buildPokemonList(pokemonList) {
-  pokemonGlobalList = pokemonList;
+  pokemonGlobalList = pokemonList
 
   const listaResultados = document.getElementById("listaInicio");
   const unorderedList = pokemonList.sort(() => 0.5 - Math.random());
   let randomPokemonShow = unorderedList.slice(0, 10);
-  let randomPokemonHide = unorderedList.slice(10);
+  let randomPokemonHide = unorderedList.slice(10)
 
   listaResultados.innerHTML = "";
 
@@ -237,20 +208,18 @@ function buildPokemonList(pokemonList) {
   randomPokemonShow.forEach((pokemon) => {
     const listItem = document.createElement("li");
     listItem.innerText = `${capitalizeFirstLetter(pokemon.name)}`;
-    listItem.classList.add(pokemon.name);
+    listItem.classList.add(pokemon.name)
 
     const imgElement = document.createElement("img");
 
-    imgElement.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
-      pokemon.url.split("/")[6]
-    }.png`;
+    imgElement.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.url.split('/')[6]}.png`;
 
     imgElement.alt = "";
     imgElement.width = 50;
 
     listItem.addEventListener("click", (event) => {
-      findPokemonByNameOnClick(event, pokemon.name);
-    });
+      findPokemonByNameOnClick(event, pokemon.name)
+    })
 
     listItem.appendChild(imgElement);
 
@@ -261,27 +230,97 @@ function buildPokemonList(pokemonList) {
   randomPokemonHide.forEach((pokemon) => {
     const listItem = document.createElement("li");
     listItem.innerText = `${capitalizeFirstLetter(pokemon.name)}`;
-    listItem.classList.add(pokemon.name);
-    listItem.style.display = "none";
+    listItem.classList.add(pokemon.name)
+    listItem.style.display = "none"
 
     const imgElement = document.createElement("img");
 
-    imgElement.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
-      pokemon.url.split("/")[6]
-    }.png`;
+    imgElement.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.url.split('/')[6]}.png`;
 
     imgElement.alt = "";
-    imgElement.width = 50;
+    imgElement.width = 50; 
 
     listItem.addEventListener("click", (event) => {
-      findPokemonByNameOnClick(event, pokemon.name);
-    });
+      findPokemonByNameOnClick(event, pokemon.name)
+    })
 
     listItem.appendChild(imgElement);
 
     listaResultados.appendChild(listItem);
   });
 }
+
+function onLoadCapturas() {
+  printCapturedPokemonList();
+  createButonLimpiar();
+}
+
+function printCapturedPokemonList() {
+  let pokemonCapturedList = localStorage.getItem("pokemonCapturedList");
+  pokemonCapturedList = pokemonCapturedList ? JSON.parse(pokemonCapturedList) : [];
+  console.log(pokemonCapturedList)
+
+  pokemonCapturedList.forEach((pokemonCaptured) => {
+    let imgElement = document.createElement("img");
+    imgElement.id = pokemonCaptured.name;
+
+    imgId = imgElement.id;
+    imagesContainer2.append(imgElement);
+
+    pokemonArray.push(imgId);
+    document.getElementById("voidP").setAttribute("hidden", "true")
+    document.getElementById(imgId).setAttribute("class", "currentPokemon");
+    document.getElementById(imgId).setAttribute("src", pokemonCaptured.img);
+
+    console.log("#"+imgId+".currentPokemon")
+    if (document.querySelector("#"+imgId+".currentPokemon")) {
+      document.querySelector("#"+imgId+".currentPokemon").addEventListener("click", (event) => {
+        imageCall(event)
+      });
+    }
+  });
+  pokeButton();
+}
+
+document.getElementById("buscarInput").addEventListener("input", filterPokemonList);
+function filterPokemonList() {
+  const searchTerm = buscarInput.value.trim().toLowerCase();
+  if (searchTerm.length === 0) {
+    buildPokemonList(pokemonGlobalList);
+  } else {
+    pokemonGlobalList.forEach((pokemon) => {
+      const pokemonName = pokemon.name.toLowerCase();
+      const shouldShow = pokemonName.startsWith(searchTerm);
+      let element = document.querySelector("." + pokemonName)
+      if (element) {
+        element.style.display = shouldShow ? "list-item" : "none";
+      }
+    });
+  }
+}
+document.getElementById('cabecera').addEventListener('click', function() {
+  location.reload();
+});
+
+onLoadCapturas();
+function createButonLimpiar() {
+}
+
+function borrarCache() {
+  let pokemonCapturedList = localStorage.getItem("pokemonCapturedList");
+  pokemonCapturedList = pokemonCapturedList
+    ? JSON.parse(pokemonCapturedList)
+    : [];
+
+  pokemonCapturedList.forEach((pokemonCaptured) => {
+    document.getElementById(pokemonCaptured.name).remove(pokemonCapturedList);
+  });
+
+  localStorage.setItem("pokemonCapturedList", JSON.stringify([]));
+  pokemonArray = [];
+  printCapturedPokemonList();
+}
+
 
 // Función para añadir sonido al capturar
 function reproducirSonido() {
