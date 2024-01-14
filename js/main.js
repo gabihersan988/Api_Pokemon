@@ -89,34 +89,37 @@ function capitalizeFirstLetter(name) {
   let nameWithCapitalLetter = name.charAt(0).toUpperCase() + name.slice(1);
   return nameWithCapitalLetter;
 }
-
+// Capturar Pokémon
 const capturaPokemon = document.querySelector(".capture");
 capturaPokemon.addEventListener("click", capturaEstePokemon);
 function capturaEstePokemon() {
   if (currentPokemonInformation) {
     let imgElement = document.createElement("img");
     imgElement.id = currentPokemonInformation.name;
-
     imgId = imgElement.id;
-    pokedex.append(imgElement);
+    imagesContainer2.append(imgElement);
     if (pokemonArray.includes(imgId)) {
-      console.log("Ya tienes este pokemon");
+      window.alert("Ya tienes este pokémon");
       console.log(pokemonArray);
     } else {
       pokemonArray.push(imgId);
       console.log(pokemonArray);
-      document.getElementById("voidP").innerText = "";
-      document
-        .getElementById(imgId)
-        .setAttribute("class", currentPokemonInformation.name);
-      document
-        .getElementById(imgId)
-        .setAttribute("src", currentPokemonInformation.sprites.front_default);
-      document.getElementById(imgId).setAttribute("type", "submit");
-      //Le agrego un evento a la imagen
-      document
-        .getElementById(imgId)
-        .setAttribute("onClick", `imageCall(${imgId})`);
+      document.getElementById("voidP").setAttribute("hidden", "true")
+      document.getElementById(imgId).setAttribute("class", "currentPokemon");
+      document.getElementById(imgId).setAttribute("src", currentPokemonInformation.sprites.front_default);
+      document.getElementById(imgId).setAttribute("alt", currentPokemonInformation.name);
+      
+      document.querySelector("#"+imgId+".currentPokemon").addEventListener("click", (event) => {
+        imageCall(event)
+      })
+      let pokemonCaptured = {
+        "name": currentPokemonInformation.name,
+        "img": currentPokemonInformation.sprites.front_default
+      }
+      let pokemonCapturedList = localStorage.getItem("pokemonCapturedList")
+      pokemonCapturedList = pokemonCapturedList ? JSON.parse(pokemonCapturedList) : [];
+      pokemonCapturedList.push(pokemonCaptured)
+      localStorage.setItem("pokemonCapturedList", JSON.stringify(pokemonCapturedList));
 
       return pokeButton();
     }
