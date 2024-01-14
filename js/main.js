@@ -131,12 +131,11 @@ function capturaEstePokemon() {
 }
 
 //Funcion que llama a la funcion findpokemonByPoke
-function imageCall(imgId) {
-  console.log("imgId:" + imgId.id);
-  findPokemonByPoke(imgId.id);
+function imageCall(event) {
+  findPokemonByPoke(event.target.id);
 }
 
-//Creo una funcion que llama al API de pokemon que acepta un literal EJ:"pikachu"
+//Funcion que llama al API de pokemon que acepta un literal EJ:"pikachu"
 function findPokemonByPoke(pokemon) {
   const apiURL = "https://pokeapi.co/api/v2/pokemon/" + pokemon;
 
@@ -161,7 +160,7 @@ function pokeButton() {
   for (let i = 0; i < pokemonArray.length; i++) {
     let setPokemon = pokemonArray[i];
     let infoPokemonCapturado = document.querySelector("." + setPokemon);
-    console.log(infoPokemonCapturado);
+    console.log("infoPokemonCapturado:" + setPokemon);
     infoPokemonCapturado.onmouseenter = () =>
       (infoPokemonCapturado.style.outline = "4px solid lightgrey");
     infoPokemonCapturado.onmouseleave = () =>
@@ -170,10 +169,12 @@ function pokeButton() {
       .getElementById(setPokemon)
       .addEventListener("submit", findPokemonByName);
     inputValue = document.getElementById(setPokemon).id;
-    console.log(inputValue);
+    console.log("inputValue:" + inputValue);
+    console.log("findPokemonByName:" + findPokemonByName);
   }
 }
-// funcion para añadir sonido al capturar
+
+// Función para añadir sonido al capturar
 function reproducirSonido() {
   const miSonido = document.getElementById('miSonido');
   miSonido.play();
