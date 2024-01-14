@@ -15,11 +15,7 @@
         <section id="BuscaTuPokemon">
             <h2 class="tituloBuscador">¡Hazte con todos!</h2>
             <form id="searchForm">
-                <input
-                    type="text"
-                    id="buscarInput"
-                    placeholder="Busca tu Pokémon"
-                />
+                <input type="text" id="buscarInput" placeholder="Busca tu Pokémon"/>
             </form>
         <section class="listaInicioSection">
             <ul id="listaInicio"></ul>
@@ -29,10 +25,13 @@
             <img id="frontImage" alt="Pokemon front image">
             <img id="backImage" alt="Pokemon back image">
           </div>
-            <h2 id="tituloResultados"></h2>
-            <ul id="listaResultados"></ul>
-            <button type="submit" class="capture">Captura este pokemon</button>
-            <audio id="miSonido" src="assets/audio/pikachu2.mp3"></audio>
+          <h2 id="tituloResultados"></h2>
+          <ul id="listaResultados"></ul>
+          <h3>¡CAPTÚRALO!</h3>
+          <div class="pokeBut">
+              <button type="submit" class="capture" id="pokeball" onclick="reproducirSonido()"></button>
+              <audio id="miSonido" src="cancion/pikachu2.mp3"></audio> 
+          </div>
         </section>
         <p id="notFound"></p>
         <section id="pokedex">
