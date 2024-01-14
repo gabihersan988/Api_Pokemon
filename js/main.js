@@ -195,3 +195,9 @@ function pokeButton() {
     console.log(inputValue);
   }
 }
+// funcion para añadir sonido al capturar
+function reproducirSonido() {
+  const miSonido = document.getElementById('miSonido');
+  miSonido.play();
+  sonidoReproducido = false;
+}
